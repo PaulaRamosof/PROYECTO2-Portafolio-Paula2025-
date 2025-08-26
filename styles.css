@@ -1,0 +1,236 @@
+/* 🎨 Fondo animado tipo glitter */
+body {
+  margin: 0;
+  font-family: 'latto', sans-serif;
+  background: linear-gradient(45deg, #f4c27a, #ff00a2, #3ed6d1, #c79dd7, #4a6cf7);
+  background-size: 400% 400%;
+  animation: glitter 12s ease infinite;
+  color: #333;
+}
+
+/* ✨ Animación glitter */
+@keyframes glitter {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🧁 Encabezado */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.986);
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+h1 {
+  font-size: 2.8em;
+  color: #ff00a2;
+  text-shadow: 2px 2px #f4c27a;
+}
+
+/* 🧩 Layout de columnas */
+.contenedor-dos-columnas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* 📐 Columnas */
+.columna {
+  flex: 1 1 350px;
+  background-color: lab(100% 0.01 -0.01 / 0.658);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* 🃏 Tarjetas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background-size: 400% 400%;
+  animation: glitterFlow 12s ease infinite;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
+
+.flip-card {
+  width: 100px;
+  height: 140px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.flip-card-front img,
+.flip-card-back img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 0;
+  margin: 0;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* 📘 Contenido interactivo */
+.derecha input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  border: 2px solid #c79dd7;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.derecha button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 0 5px rgba(74, 108, 247, 0.5);
+}
+
+.derecha button:hover {
+  background-color: #3a5bd1;
+}
+
+/* ✅ Feedback */
+#feedback {
+  font-size: 1.1em;
+  margin-top: 10px;
+  color: #0077cc;
+}
+
+/* 🧸 Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.footer p {
+  margin: 0;
+  color: #4a6cf7;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.modal-content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.modal-content button {
+  margin-top: 12px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal {
+  transition: opacity 0.5s ease;
+}
+
+.modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#introModal {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+#introModal.hidden {
+  opacity: 0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .contenedor-dos-columnas {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .flip-card {
+    width: 80px;
+    height: 110px;
+  }
+}

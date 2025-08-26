@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alphabet Flip Cards</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Learn the Alphabet!</h1>
+  </header>
+<div id="introModal" class="modal">
+  <div class="modal-content">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="/img/video/The Alphabet.mp4" type="video/mp4">
+      Tu navegador no soporta el video HTML5.
+    </video>
+    <button id="startButton">Comenzar</button>
+  </div>
+</div>
+  <main class="contenedor-dos-columnas">
+    <!-- 🃏 Columna izquierda: cartas del alfabeto -->
+    <section class="columna izquierda">
+      <div id="cardContainer" class="card-container"></div>
+    </section>
+
+    <!-- 📘 Columna derecha: contenido interactivo -->
+    <section class="columna derecha" id="extraContent">
+      <!-- Este contenido se llena dinámicamente desde script.js -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Learn the Alphabet</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
