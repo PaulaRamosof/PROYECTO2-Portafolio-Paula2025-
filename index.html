@@ -1,40 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alphabet Flip Cards</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Learn the Alphabet!</h1>
-  </header>
-<div id="introModal" class="modal">
-  <div class="modal-content">
-    <video id="introVideo" autoplay muted playsinline>
-      <source src="/img/video/The Alphabet.mp4" type="video/mp4">
-      Tu navegador no soporta el video HTML5.
-    </video>
-    <button id="startButton">Comenzar</button>
+  <!-- Modal de introducción en pantalla completa -->
+  <div id="introModal" class="modal fade" tabindex="-1" aria-labelledby="introModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-dark text-white border-0 rounded-0 p-0">
+        <video id="introVideo" muted playsinline class="w-100" style="height: 100vh; object-fit: cover;">
+          <source src="/img/video/The Alphabet.mp4" type="video/mp4" />
+          Tu navegador no soporta el video HTML5.
+        </video>
+        <div class="position-absolute bottom-0 start-50 translate-middle-x mb-5">
+          <button id="startButton" class="btn btn-lg btn-primary px-5">Comenzar</button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-  <main class="contenedor-dos-columnas">
-    <!-- 🃏 Columna izquierda: cartas del alfabeto -->
-    <section class="columna izquierda">
-      <div id="cardContainer" class="card-container"></div>
-    </section>
 
-    <!-- 📘 Columna derecha: contenido interactivo -->
-    <section class="columna derecha" id="extraContent">
-      <!-- Este contenido se llena dinámicamente desde script.js -->
-    </section>
-  </main>
+  <!-- Encabezado -->
+  <header class="main-header text-center py-4">
+    <h1 id="introModalLabel">🌈 Aprende el Alfabeto Jugando</h1>
+    <p class="lead">Haz clic en cada letra para descubrir una imagen y practicar su pronunciación</p>
+  </header>
 
-  <footer class="footer">
-    <p>© 2025 Learn the Alphabet</p>
+  <!-- Modal centrado para vista previa -->
+  <div id="previewModal" class="modal fade" tabindex="-1" aria-labelledby="previewModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content p-4 text-center position-relative">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <div id="previewContent" aria-labelledby="previewModalLabel">
+          <!-- Contenido dinámico generado por JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor principal de cartas -->
+<main class="container my-4">
+  <div class="card-container" id="cardContainer">
+    <!-- Aquí se generan las cards -->
+  </div>
+</main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3 mt-auto">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Learn the Alphabet. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

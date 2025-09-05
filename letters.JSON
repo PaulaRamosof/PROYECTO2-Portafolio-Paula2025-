@@ -1,0 +1,184 @@
+[
+  {
+    "letter": "A",
+    "frontImage": "img/Letra/Letras A-J/1.png",
+    "image": "img/Imagen/Img A-J/A.jpg",
+    "word": "airplane",
+    "example": "The airplane flies high in the sky."
+  },
+  {
+    "letter": "B",
+    "frontImage": "img/Letra/Letras A-J/2.png",
+    "image": "img/Imagen/Img A-J/B.jpg",
+    "word": "ball",
+    "example": "She kicks the ball across the yard.."
+  },
+  {
+    "letter": "C",
+    "frontImage": "img/Letra/Letras A-J/3.png",
+    "image": "img/Imagen/Img A-J/C.jpg",
+    "word": "cake",
+    "example": "We made a chocolate cake for my birthday."
+  },
+  {
+    "letter": "D",
+    "frontImage": "img/Letra/Letras A-J/4.png",
+    "image": "img/Imagen/Img A-J/D.jpg",
+    "word": "drum",
+    "example": "He plays the drum in the band."
+  },
+  {
+    "letter": "E",
+    "frontImage": "img/Letra/Letras A-J/5.png",
+    "image": "img/Imagen/Img A-J/E.jpg",
+    "word": "elephant",
+    "example": "The elephant has big ears."
+  },
+  {
+    "letter": "F",
+    "frontImage": "img/Letra/Letras A-J/6.png",
+    "image": "img/Imagen/Img A-J/F.jpg",
+    "word": "fish",
+    "example": "The fish swims in the aquarium."
+  },
+  {
+    "letter": "G",
+    "frontImage": "img/Letra/Letras A-J/7.png",
+    "image": "img/Imagen/Img A-J/G.jpg",
+    "word": "Guitar",
+    "example": "She plays the guitar beautifully."
+  },
+  {
+    "letter": "H",
+    "frontImage": "img/Letra/Letras A-J/8.png",
+    "image": "img/Imagen/Img A-J/H.jpg",
+    "word": "horse",
+    "example": "The horse runs fast on the farm."
+  },
+  {
+    "letter": "I",
+    "frontImage": "img/Letra/Letras A-J/9.png",
+    "image": "img/Imagen/Img A-J/I.jpg",
+    "word": "ice",
+    "example": "I put ice in my juice."
+  },
+  {
+    "letter": "J",
+    "frontImage": "img/Letra/Letras A-J/10.png",
+    "image": "img/Imagen/Img A-J/J.jpg",
+    "word": "Jelly",
+    "example": "Jelly is sweet and wobbly."
+  },
+  {
+    "letter": "K",
+    "frontImage": "img/Letra/Letras K - S/1.png",
+    "image": "img/Imagen/Img K-S/K.jpg",
+    "word": "Kite",
+    "example": "My kite flies in the wind."
+  },
+  {
+    "letter": "L",
+    "frontImage": "img/Letra/Letras K - S/2.png",
+    "image": "img/Imagen/Img K-S/L.jpg",
+    "word": "Lamp",
+    "example": "Turn on the lamp when it´s dark ."
+  },
+  {
+    "letter": "M",
+    "frontImage": "img/Letra/Letras K - S/3.png",
+    "image": "img/Imagen/Img K-S/M.jpg",
+    "word": "moon",
+    "example": "The moon shines at night"
+  },
+  {
+    "letter": "N",
+    "frontImage": "img/Letra/Letras K - S/4.png",
+    "image": "img/Imagen/Img K-S/N.jpg",
+    "word": "Nose",
+    "example": "My nose smells flowers."
+  },
+  {
+    "letter": "O",
+    "frontImage": "img/Letra/Letras K - S/5.png",
+    "image": "img/Imagen/Img K-S/O.jpg",
+    "word": "Owl",
+    "example": "The owl hoots at night."
+  },
+  {
+    "letter": "P",
+    "frontImage": "img/Letra/Letras K - S/6.png",
+    "image": "img/Imagen/Img K-S/P.jpg",
+    "word": "pig",
+    "example": "The pig rolls in the mud."
+  },
+  {
+    "letter": "Q",
+    "frontImage": "img/Letra/Letras K - S/7.png",
+    "image": "img/Imagen/Img K-S/Q.jpg",
+    "word": "Queen",
+    "example": "The queen wears a golden crown."
+  },
+  {
+    "letter": "R",
+    "frontImage": "img/Letra/Letras K - S/8.png",
+    "image": "img/Imagen/Img K-S/R.jpg",
+    "word": "Rainbow",
+    "example": "Look! A rainbow after the rain."
+  },
+  {
+    "letter": "S",
+    "frontImage": "img/Letra/Letras K - S/9.png",
+    "image": "img/Imagen/Img K-S/S.jpg",
+    "word": "Star",
+    "example": "I see a star in the sky."
+  },
+  {
+    "letter": "T",
+    "frontImage": "img/Letra/Letras T-Z/1.png",
+    "image": "img/Imagen/Img T-Z/T.jpg",
+    "word": "Tree",
+    "example": "The tree is tall and green."
+  },
+  {
+    "letter": "U",
+    "frontImage": "img/Letra/Letras T-Z/2.png",
+    "image": "img/Imagen/Img T-Z/U.jpg",
+    "word": "Umbrella",
+    "example": "I use an umbrella when it rains."
+  },
+  {
+    "letter": "V",
+    "frontImage": "img/Letra/Letras T-Z/3.png",
+    "image": "img/Imagen/Img T-Z/V.jpg",
+    "word": "Volcano",
+    "example": "The volcano is very hot."
+  },
+  {
+    "letter": "W",
+    "frontImage": "img/Letra/Letras T-Z/4.png",
+    "image": "img/Imagen/Img T-Z/W.jpg",
+    "word": "Whale",
+    "example": "The whale swims in the sea."
+  },
+  {
+    "letter": "X",
+    "frontImage": "img/Letra/Letras T-Z/5.png",
+    "image": "img/Imagen/Img T-Z/X.jpg",
+    "word": "X-ray",
+    "example": "The doctor took an X-ray of my arm."
+  },
+  {
+    "letter": "Y",
+    "frontImage": "img/Letra/Letras T-Z/6.png",
+    "image": "img/Imagen/Img T-Z/Y.jpg",
+    "word": "Yellow",
+    "example": "The sun is yellow."
+  },
+  {
+    "letter": "Z",
+    "frontImage": "img/Letra/Letras T-Z/7.png",
+    "image": "img/Imagen/Img T-Z/Z.jpg",
+    "word": "Zoo",
+    "example": "We saw lions at the zoo."
+  }
+]
