@@ -1,18 +1,14 @@
-/* Fondo animado tipo glitter */
-body {
+/* -------------------- Fondo animado -------------------- */
+body, html {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Comic Neue', 'Comic Sans MS', sans-serif;
   background: linear-gradient(45deg, #f4c27a, #ff00a2, #3ed6d1, #c79dd7, #4a6cf7);
   background-size: 400% 400%;
   animation: glitter 12s ease infinite;
   color: #333;
-  display: grid;
-  place-items: center;
   min-height: 100vh;
-
-
-  
-
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes glitter {
@@ -21,75 +17,52 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Encabezado */
-header {
+/* -------------------- Encabezado -------------------- */
+header.main-header {
   text-align: center;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.986);
-  border-radius: 12px;
-  margin: 20px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-}
-
-.main-header {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   margin: 20px auto;
   max-width: 900px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 .main-header h1 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   color: #ff00a2;
-  text-shadow: 2px 2px #f4c27a;
+  text-shadow: 3px 3px #f4c27a;
 }
 
 .main-header p {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #4a6cf7;
 }
 
-/* Contenedor de cards con grid fijo 7 columnas x 4 filas */
+/* -------------------- Contenedor cartas -------------------- */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  gap: 12px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px;
-  justify-items: center;
-  align-items: center;
-}
-
-.card {
-  width: 100%; 
-  max-width: 100px; /* Controla el tamaño máximo */
-  aspect-ratio: 1 / 1; /* Mantiene forma cuadrada */  
-  background-color: #9c27b0;
-  color: white;
-  font-size: 2rem;   
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 25px;
   justify-content: center;
-  border-radius: 12px;
-  border: none;
-  gap: 1rem !important;
-  height: 80px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  cursor: pointer;
-
-
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05); /* o #fefefe si prefieres */
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
 
 }
 
-
-/* Flip Cards mejorado */
+/* -------------------- Flip Cards -------------------- */
 .flip-card {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   perspective: 1000px;
-  position: relative;
   cursor: pointer;
+  margin: 0;
 }
 
 .flip-card-inner {
@@ -98,8 +71,7 @@ header {
   height: 100%;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .flip-card.flipped .flip-card-inner {
@@ -113,18 +85,19 @@ header {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 2px;
+  background: radial-gradient(circle at center, #fff 60%, #fdf6e3 100%);
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.4); /* sombra externa suave */
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .flip-card-front {
-  border-color: #ff69b4;
+  border: 3px solid #ff69b4;
+  box-shadow: inset 0 0 10px rgba(255, 105, 180, 0.3);
+  outline: 2px solid rgba(0, 0, 0, 0.1);
+  
 }
 
 .flip-card.flipped .flip-card-front {
@@ -133,8 +106,8 @@ header {
 
 .flip-card-back {
   transform: rotateY(180deg);
-  border-color: #3ed6d1;
-  box-shadow: 0 0 12px rgba(62, 214, 209, 0.5);
+  border: 3px solid #3ed6d1;
+  box-shadow: 0 0 15px rgba(62, 214, 209, 0.5);
 }
 
 .flip-card-front img,
@@ -142,19 +115,26 @@ header {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
-  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-.flip-card.flipped img {
-  opacity: 0.9;
+.flip-card:hover .flip-card-front img,
+.flip-card:hover .flip-card-back img {
+  transform: scale(1.05);
 }
 
-/* Feedback y oración ejemplo */
+/* -------------------- Feedback -------------------- */
 #feedback {
-  font-size: 1.1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff4081;
+  text-align: center;
   margin-top: 10px;
-  color: #0077cc;
 }
+
+#feedback.correct { color: #00c853; }
+#feedback.incorrect { color: #d50000; }
 
 #feedback .example-sentence {
   font-size: 1.3em;
@@ -164,7 +144,7 @@ header {
   display: block;
 }
 
-/* Botón cerrar modal */
+/* -------------------- Botón cerrar modal -------------------- */
 .btn-close {
   filter: invert(1);
   opacity: 0.7;
@@ -174,104 +154,38 @@ header {
   opacity: 1;
 }
 
-/* Responsive para móviles pequeños */
+/* -------------------- Responsive -------------------- */
+
+/* Móviles pequeños */
 @media (max-width: 576px) {
-  /* Contenedor cards: 2 columnas */
-  .card-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 12px;
-    padding: 10px;
-    max-width: 100%;
-  }
-
-  /* Cards más pequeñas */
-  .flip-card {
-    width: 90px;
-    height: 90px;
-  }
-
-  /* Texto header más pequeño */
-  .main-header h1 {
-    font-size: 1.8em;
-  }
-
-  .main-header p {
-    font-size: 1em;
-  }
-
-  /* Modal vista previa */
-  #previewModal .modal-dialog {
-    max-width: 90vw;
-    margin: 1.5rem auto;
-  }
-
-  #previewModal .modal-content {
-    padding: 1rem 1rem 2rem 1rem;
-  }
-
-  /* Botones más grandes */
-  #previewModal button {
-    font-size: 1em;
-    padding: 10px;
-  }
-
-  /* Input texto más grande */
-  #previewModal input#guessInput {
-    font-size: 1em;
-    padding: 8px;
-  }
-
-  /* Imagen modal más pequeña */
-  #previewContent img {
-    max-height: 180px;
-    width: auto;
-  }
+  .card-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .flip-card { width: 100px; height: 100px; }
+  .main-header h1 { font-size: 1.8em; }
+  .main-header p { font-size: 1em; }
+  #previewContent img { max-height: 180px; width: auto; }
 }
 
-/* Responsive para tablets */
+/* Tablets */
 @media (min-width: 577px) and (max-width: 768px) {
-  .card-container {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 15px;
-    padding: 15px;
-    max-width: 100%;
-  }
-
-  .flip-card {
-    width: 100px;
-    height: 100px;
-  }
-
-  .main-header h1 {
-    font-size: 2.2em;
-  }
-
-  .main-header p {
-    font-size: 1.1em;
-  }
-
-  #previewModal .modal-dialog {
-    max-width: 80vw;
-  }
-
-  #previewContent img {
-    max-height: 220px;
-  }
+  .card-container { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flip-card { width: 120px; height: 120px; }
+  .main-header h1 { font-size: 2.2em; }
+  .main-header p { font-size: 1.1em; }
+  #previewContent img { max-height: 220px; width: auto; }
 }
 
-/* Responsive para desktop */
-/* Responsive para desktop */
-@media (min-width: 769px) {
-  .card-container {
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 50px; /* ← Aumentado para dar más espacio entre cards */
-  }
+/* Desktop estándar */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .card-container { grid-template-columns: repeat(6, 1fr); gap: 22px; }
+  .flip-card { width: 140px; height: 140px; }
+  .main-header h1 { font-size: 2.5em; }
+  .main-header p { font-size: 1.2em; }
+}
 
-  .flip-card {
-    width: 120px;
-    height: 120px;
-  }
+/* Desktop grande */
+@media (min-width: 1201px) {
+  .card-container { grid-template-columns: repeat(7, 1fr); gap: 25px; }
+  .flip-card { width: 160px; height: 160px; }
+  .main-header h1 { font-size: 2.8em; }
+  .main-header p { font-size: 1.4em; }
 }
