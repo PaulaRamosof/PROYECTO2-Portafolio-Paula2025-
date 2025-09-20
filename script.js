@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function cargarDatosDesdeJSON() {
     try {
-      const response = await fetch('letters.json');
+      const response = await fetch('https://raw.githubusercontent.com/PaulaRamosof/PROYECTO2-Portafolio-Paula2025-/refs/heads/master/letters.JSON');
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
       const data = await response.json();
