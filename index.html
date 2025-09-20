@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Modal de introducción en pantalla completa -->
-  <div id="introModal" class="modal fade" tabindex="-1" inert aria-labelledby="introModalLabel" aria-modal="true" role="dialog">
+  <!-- Modal de introducción -->
+  <div id="introModal" class="modal fade" tabindex="-1" aria-labelledby="introModalLabel" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-fullscreen">
-      <div id="introModal" class="modal fade" tabindex="-1" aria-labelledby="introModalLabel" aria-modal="true" role="dialog">
+      <div class="modal-content bg-dark text-white border-0 rounded-0 p-0 position-relative">
         <div class="ratio ratio-16x9">
           <video id="introVideo" muted playsinline autoplay>
             <source src="img/video/alphabet.mp4" type="video/mp4" />
@@ -32,11 +32,9 @@
     <p class="lead">Haz clic en cada letra para descubrir una imagen y practicar su pronunciación</p>
   </header>
 
-  <!-- Contenedor principal de cartas -->
+  <!-- Contenedor de cartas -->
   <main class="flex-grow-1 d-flex justify-content-center align-items-center">
-    <div class="card-container" id="cardContainer">
-      <!-- Las cartas se generan dinámicamente con JS -->
-    </div>
+    <div class="card-container" id="cardContainer"></div>
   </main>
 
   <!-- Modal de vista previa -->
@@ -44,9 +42,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content p-4 text-center position-relative">
         <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        <div id="previewContent" aria-labelledby="previewModalLabel">
-          <!-- Contenido dinámico generado por JS -->
-        </div>
+        <div id="previewContent" aria-labelledby="previewModalLabel"></div>
       </div>
     </div>
   </div>

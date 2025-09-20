@@ -1,14 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const cardContainer = document.getElementById('cardContainer');
   const introModalEl = document.getElementById('introModal');
   const startButton = document.getElementById('startButton');
+  const previewContent = document.getElementById('previewContent');
+  const previewModalEl = document.getElementById('previewModal');
   const video = document.getElementById('introVideo');
+
+  let currentCard = null;
 
   const introModal = new bootstrap.Modal(introModalEl, {
     backdrop: 'static',
     keyboard: false
   });
 
-  // Mostrar el modal y activar interacción
+  const previewModal = new bootstrap.Modal(previewModalEl);
+
+  // Mostrar el modal al cargar
   setTimeout(() => {
     introModal.show();
   }, 100);
@@ -29,8 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
       introModal.hide();
     });
   }
-  // Manejar el cierre del modal});
 
+  // Resetear carta al cerrar el modal de vista previa
+  previewModalEl.addEventListener('hidden.bs.modal', () => {
+    resetCard();
+  });
+
+  // Cargar datos desde JSON
   async function cargarDatosDesdeJSON() {
     try {
       const response = await fetch('https://raw.githubusercontent.com/PaulaRamosof/PROYECTO2-Portafolio-Paula2025-/refs/heads/master/letters.JSON');
@@ -44,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Generar cartas
   function generarCartas(alphabetData) {
     alphabetData.forEach((item) => {
       const col = document.createElement('div');
@@ -69,21 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Manejar clic en carta
   function handleCardClick(item, cardElement) {
     const isFlipped = cardElement.classList.contains('flipped');
 
-    if (isFlipped && currentCard?.element === cardElement) {
-      // Ya está volteada, no hacemos nada
-    } else {
-      if (currentCard?.element) {
-        currentCard.element.classList.remove('flipped');
-      }
-      cardElement.classList.add('flipped');
-      currentCard = { ...item, element: cardElement };
-      mostrarVistaPrevia(item);
+    if (isFlipped && currentCard?.element === cardElement) return;
+
+    if (currentCard?.element) {
+      currentCard.element.classList.remove('flipped');
     }
+
+    cardElement.classList.add('flipped');
+    currentCard = { ...item, element: cardElement };
+    mostrarVistaPrevia(item);
   }
 
+  // Mostrar vista previa
   function mostrarVistaPrevia(item) {
     previewContent.innerHTML = `
       <h2 class="mb-3">¿Qué palabra representa esta imagen?</h2>
@@ -99,12 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
     previewModal.show();
 
     document.getElementById('checkButton').addEventListener('click', () => checkGuess(item));
-    document.getElementById('resetButton').addEventListener('click', () => {
-      previewModal.hide();
-    });
+    document.getElementById('resetButton').addEventListener('click', () => previewModal.hide());
     document.getElementById('play-audio-btn').addEventListener('click', () => reproducirAudio(item.word));
   }
 
+  // Reproducir audio
   function reproducirAudio(word) {
     const utterance = new SpeechSynthesisUtterance(word);
     utterance.lang = 'en-US';
@@ -114,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     speechSynthesis.speak(utterance);
   }
 
+  // Verificar respuesta
   function checkGuess(item) {
     const userGuess = document.getElementById('guessInput').value.trim().toLowerCase();
     const playAudioBtn = document.getElementById('play-audio-btn');
@@ -133,11 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Resaltar palabra en la oración
   function highlightWord(sentence, word) {
     const regex = new RegExp(`\\b(${word})\\b`, 'i');
     return sentence.replace(regex, `<span style="text-decoration: underline; color: #0077cc;">$1</span>`);
   }
 
+  // Resetear carta activa
   function resetCard() {
     if (currentCard?.element) {
       currentCard.element.classList.remove('flipped');
@@ -145,5 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Iniciar carga de datos
   cargarDatosDesdeJSON();
 });
