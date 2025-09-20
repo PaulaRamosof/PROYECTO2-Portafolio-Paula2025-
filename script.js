@@ -1,58 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cardContainer = document.getElementById('cardContainer');
   const introModalEl = document.getElementById('introModal');
   const startButton = document.getElementById('startButton');
-  const previewContent = document.getElementById('previewContent');
-  const previewModalEl = document.getElementById('previewModal');
   const video = document.getElementById('introVideo');
-
-  let currentCard = null;
 
   const introModal = new bootstrap.Modal(introModalEl, {
     backdrop: 'static',
     keyboard: false
   });
 
-  const previewModal = new bootstrap.Modal(previewModalEl);
-
-  // Mostrar el modal con accesibilidad activa
+  // Mostrar el modal y activar interacción
   setTimeout(() => {
-    introModalEl.removeAttribute('inert');
-    introModalEl.removeAttribute('aria-hidden');
     introModal.show();
   }, 100);
 
   // Cerrar el modal al hacer clic en "Comenzar"
   startButton.addEventListener('click', () => {
     introModal.hide();
-    introModalEl.setAttribute('aria-hidden', 'true');
-    introModalEl.setAttribute('inert', '');
-
-    if (video) {
-      video.play().catch(error => {
-        console.warn('⚠️ No se pudo reproducir el video tras interacción:', error);
-      });
-    }
   });
 
   // Reproducir el video si el navegador lo permite
   if (video) {
     video.muted = true;
     video.play().catch(error => {
-      console.warn('⚠️ No se pudo reproducir automáticamente el video de introducción:', error);
+      console.warn('⚠️ No se pudo reproducir automáticamente el video:', error);
     });
 
-    // Cerrar el modal cuando el video termine
     video.addEventListener('ended', () => {
       introModal.hide();
-      introModalEl.setAttribute('aria-hidden', 'true');
-      introModalEl.setAttribute('inert', '');
     });
   }
-
-  previewModalEl.addEventListener('hidden.bs.modal', () => {
-    resetCard();
-  });
+  // Manejar el cierre del modal});
 
   async function cargarDatosDesdeJSON() {
     try {
