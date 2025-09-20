@@ -15,14 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const previewModal = new bootstrap.Modal(previewModalEl);
 
-  // Mostrar el modal al cargar
+  // Mostrar el modal de introducción al cargar
   setTimeout(() => {
     introModal.show();
+    introModalEl.removeAttribute('aria-hidden');
+    introModalEl.inert = false;
   }, 100);
 
   // Cerrar el modal al hacer clic en "Comenzar"
   startButton.addEventListener('click', () => {
     introModal.hide();
+    startButton.blur();
+    introModalEl.inert = true;
+
+    if (video) {
+      video.play().catch(error => {
+        console.warn('⚠️ No se pudo reproducir el video tras interacción:', error);
+      });
+    }
   });
 
   // Reproducir el video si el navegador lo permite
@@ -34,12 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     video.addEventListener('ended', () => {
       introModal.hide();
+      startButton.blur();
+      video.pause();
+      video.currentTime = 0;
+      introModalEl.inert = true;
     });
   }
 
   // Resetear carta al cerrar el modal de vista previa
   previewModalEl.addEventListener('hidden.bs.modal', () => {
     resetCard();
+    document.activeElement.blur();
+    previewModalEl.inert = true;
   });
 
   // Cargar datos desde JSON
@@ -111,6 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     previewModal.show();
+    previewModalEl.removeAttribute('aria-hidden');
+    previewModalEl.inert = false;
 
     document.getElementById('checkButton').addEventListener('click', () => checkGuess(item));
     document.getElementById('resetButton').addEventListener('click', () => previewModal.hide());
@@ -163,4 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Iniciar carga de datos
   cargarDatosDesdeJSON();
+});
+
+// Solución global para accesibilidad en modales
+window.addEventListener('show.bs.modal', event => {
+  event.target.inert = false;
+  event.target.removeAttribute('aria-hidden');
+});
+
+window.addEventListener('hide.bs.modal', event => {
+  event.target.inert = true;
+  document.activeElement.blur();
 });
