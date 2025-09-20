@@ -8,23 +8,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentCard = null;
 
-  const introModal = new bootstrap.Modal(introModalEl, { backdrop: 'static', keyboard: false });
-  const previewModal = new bootstrap.Modal(previewModalEl);
-
-  introModal.show();
-
-  startButton.addEventListener('click', () => {
-    introModal.hide();
+  const introModal = new bootstrap.Modal(introModalEl, {
+    backdrop: 'static',
+    keyboard: false
   });
 
+  const previewModal = new bootstrap.Modal(previewModalEl);
+
+  // Mostrar el modal con accesibilidad activa
+  setTimeout(() => {
+    introModalEl.removeAttribute('inert');
+    introModalEl.removeAttribute('aria-hidden');
+    introModal.show();
+  }, 100);
+
+  // Cerrar el modal al hacer clic en "Comenzar"
+  startButton.addEventListener('click', () => {
+    introModal.hide();
+    introModalEl.setAttribute('aria-hidden', 'true');
+    introModalEl.setAttribute('inert', '');
+
+    if (video) {
+      video.play().catch(error => {
+        console.warn('⚠️ No se pudo reproducir el video tras interacción:', error);
+      });
+    }
+  });
+
+  // Reproducir el video si el navegador lo permite
   if (video) {
     video.muted = true;
     video.play().catch(error => {
       console.warn('⚠️ No se pudo reproducir automáticamente el video de introducción:', error);
     });
 
+    // Cerrar el modal cuando el video termine
     video.addEventListener('ended', () => {
       introModal.hide();
+      introModalEl.setAttribute('aria-hidden', 'true');
+      introModalEl.setAttribute('inert', '');
     });
   }
 
@@ -110,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const utterance = new SpeechSynthesisUtterance(word);
     utterance.lang = 'en-US';
     const voices = speechSynthesis.getVoices();
-    const spanishVoice = voices.find(v => v.lang.startsWith('en-US'));
-    if (spanishVoice) utterance.voice = spanishVoice;
+    const englishVoice = voices.find(v => v.lang.startsWith('en-US'));
+    if (englishVoice) utterance.voice = englishVoice;
     speechSynthesis.speak(utterance);
   }
 

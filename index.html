@@ -12,11 +12,13 @@
   <!-- Modal de introducción en pantalla completa -->
   <div id="introModal" class="modal fade" tabindex="-1" inert aria-labelledby="introModalLabel" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content bg-dark text-white border-0 rounded-0 p-0">
-        <video id="introVideo" muted playsinline autoplay class="w-100" style="height: 100vh; object-fit: cover;">
-          <source src="img/video/alphabet.mp4" type="video/mp4" />
-          Tu navegador no soporta el video HTML5.
-        </video>
+      <div class="modal-content bg-dark text-white border-0 rounded-0 p-0 position-relative">
+        <div class="ratio ratio-16x9">
+          <video id="introVideo" muted playsinline autoplay>
+            <source src="img/video/alphabet.mp4" type="video/mp4" />
+            Tu navegador no soporta el video HTML5.
+          </video>
+        </div>
         <div class="position-absolute bottom-0 start-50 translate-middle-x mb-5">
           <button id="startButton" class="btn btn-lg btn-warning px-5">🚀 Comenzar</button>
         </div>
